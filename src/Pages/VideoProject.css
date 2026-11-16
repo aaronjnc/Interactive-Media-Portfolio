@@ -1,0 +1,15 @@
+#finalVideo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#finalVideo video {
+    position: sticky;
+    top: 0;
+}
+
+#finalVideo p {
+    text-align: justify;
+}
+

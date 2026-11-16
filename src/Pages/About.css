@@ -1,0 +1,15 @@
+#aboutMe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#aboutMe img {
+    position: sticky;
+    top: 0;
+}
+
+#aboutMeText h1 {
+    text-align: left;
+}
+
