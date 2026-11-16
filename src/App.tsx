@@ -1,13 +1,12 @@
 //import reactLogo from './assets/react.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import PhotoProject from "./Pages/PhotoProject";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import VideoProject from "./Pages/VideoProject";
 import Reflection from "./Pages/Reflection";
-import { useState } from 'react';
 
 function HomePage() {
   return (
@@ -48,8 +47,6 @@ function HomePage() {
 
 
 function App() {
-  const [selectedIcon] = useState('navLink');
-
   return (
     <>
     <BrowserRouter>
