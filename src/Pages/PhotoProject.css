@@ -18,3 +18,15 @@
   background-color: black;
   width: 250px;
 }
+
+.projectName {
+  background-color: #07beb8;
+  width: 100%;
+}
+
+.projectName h1 {
+  margin: 0;
+  padding: 20px;
+  color: #000;
+}
+

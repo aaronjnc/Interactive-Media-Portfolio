@@ -1,7 +1,8 @@
 //import reactLogo from './assets/react.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import headshot from "./assets/Headshot.png";
+import aesthetic from "./assets/Aesthetic.png";
 import PhotoProject from "./Pages/PhotoProject";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
@@ -11,35 +12,70 @@ import Reflection from "./Pages/Reflection";
 function HomePage() {
   return (
     <>
-    <main className="container">
-      <section className='welcome'>
-        <h1>Interactive Media</h1>
-      </section>
+    <main>
+      <div className="page home-page">
+        <header className="page-header">
+          <span>Portfolio</span>
+          <span>Based in Limerick, IE</span>
+        </header>
+        <section className="hero">
+          <div className="hero-copy">
+            <p className="eyebrow">Independent creative</p>
+            <h1>Aaron<br></br>King</h1>
+            <p className="role">Technical Experience Designer</p>
+          </div>
+          <figure className="portrait-wrap">
+            <div className="portrait-accent" />
+            <img src={headshot}/>
+          </figure>
+          <p className="hero-note">
+            I build vivid visual worlds for people and brands with something meaningful to say.
+          </p>
+        </section>
 
-      <div className="row">
-        <div className="column">
-          <div className="project">
-            <a href="/photo-project"><img src={reactLogo} alt="Photo Series"></img></a>
-            <h3>Photo Series</h3>
-            <p>Lorem ipsum...</p>
+        <section className="selected-section">
+          <div className="section-heading">
+            <h2>
+              Featured Projects
+            </h2>
           </div>
-        </div>
-        <div className="column">
-          <div className="project">
-            <a href="/video-project"><img src={reactLogo} alt="Video Project"></img></a>
-            <h3>Video Production</h3>
-            <p>Lorem ipsum...</p>
+          <div className="project-list">
+            <button className="project-card wide">
+              <div className="project-image">
+                <img src={aesthetic}/>
+                <span className="view-pill">
+                  View project
+                </span>
+              </div>
+              <div className="project-meta">
+                <h3>Photo Series</h3>
+              </div>
+            </button>
+            <button className="project-card">
+              <div className="project-image">
+                <img src={aesthetic}/>
+                <span className="view-pill">
+                  View project
+                </span>
+              </div>
+              <div className="project-meta">
+                <h3>Video Project</h3>
+              </div>
+            </button>
+            <button className="project-card film-card">
+              <div className="project-image">
+                <img src={aesthetic}/>
+                <span className="view-pill">
+                  View project
+                </span>
+              </div>
+              <div className="project-meta">
+                <h3>Video Report</h3>
+              </div>
+            </button>
           </div>
-        </div>
-        <div className="column">
-          <div className="project">
-            <a href="/reflection"><img src={reactLogo} alt="Reflection"></img></a>
-            <h3>Reflection</h3>
-            <p>Lorem ipsum...</p>
-          </div>
-        </div>
+        </section>
       </div>
-
     </main>
     </>
   );
@@ -50,31 +86,20 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <header className="header">
-        <div id="header">
-          <div id="title">
-            <h2>Aaron King</h2>
-          </div>
-          <div id="headerRight">
-            <div className="topNav">
-              <Link to="/" className="navLink">Home</Link>
-              <div className="dropdown">
-                <button className="dropbtn">Projects
-                  <i className="fa fa-caret-down"></i>
-                </button>
-                <div className="dropdown-content">
-                  <Link to="/photo-project" className="dropLink">Photo Series</Link>
-                  <Link to="/video-project" className="dropLink">Video Project</Link>
-                  <Link to="/reflection" className="dropLink">Reflection</Link>
-                </div>
-              </div>
-              <Link to="/about" className="navLink">About</Link>
-              <Link to="/contact" className="navLink">Contact</Link>
-            </div>
-          </div>
-                
+      <aside className="sidebar">
+        <nav aria-label="Portfolio navigation">
+          <NavLink to="/" className="navLink">HOME</NavLink>
+          <NavLink to="/photo-project" className="navLink">PHOTOGRAPHY</NavLink>
+          <NavLink to="/video-project" className="navLink">VIDEOGRAPHY</NavLink>
+          <NavLink to="/reflection" className="navLink">REFLECTION</NavLink>
+          <NavLink to="/about" className="navLink">ABOUT</NavLink>
+          <NavLink to="/contact" className="navLink">CONTACT</NavLink>
+        </nav>
+        <div className="sidebar-foot">
+          <span>Available for work</span>
+          <span className="availability-dot" />
         </div>
-      </header>
+      </aside>
 
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -84,10 +109,6 @@ function App() {
         <Route path="/video-project" element={<VideoProject />} />
         <Route path="/reflection" element={<Reflection />} />
       </Routes>
-
-      <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Aaron King. All Rights Reserved.</p>
-      </footer>
     </BrowserRouter>
     </>
   );
