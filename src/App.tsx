@@ -1,12 +1,13 @@
 //import reactLogo from './assets/react.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import PhotoProject from "./Pages/PhotoProject";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import VideoProject from "./Pages/VideoProject";
 import Reflection from "./Pages/Reflection";
+import { useState } from 'react';
 
 function HomePage() {
   return (
@@ -47,34 +48,22 @@ function HomePage() {
 
 
 function App() {
+  const [selectedIcon] = useState('navLink');
+
   return (
     <>
     <BrowserRouter>
-      <header className="header">
-        <div id="header">
-          <div id="title">
-            <h2>Aaron King</h2>
-          </div>
-          <div id="headerRight">
-            <div className="topNav">
-              <Link to="/" className="navLink">Home</Link>
-              <div className="dropdown">
-                <button className="dropbtn">Projects
-                  <i className="fa fa-caret-down"></i>
-                </button>
-                <div className="dropdown-content">
-                  <Link to="/photo-project" className="dropLink">Photo Series</Link>
-                  <Link to="/video-project" className="dropLink">Video Project</Link>
-                  <Link to="/reflection" className="dropLink">Reflection</Link>
-                </div>
-              </div>
-              <Link to="/about" className="navLink">About</Link>
-              <Link to="/contact" className="navLink">Contact</Link>
-            </div>
-          </div>
-                
-        </div>
-      </header>
+      <div className="sidenav">
+        <h2>Aaron King</h2>
+        <nav>
+        <NavLink to="/" className="navLink">Home</NavLink>
+        <NavLink to="/photo-project" className="navLink">Photo Project</NavLink>
+        <NavLink to="/video-project" className="navLink">Video Project</NavLink>
+        <NavLink to="/reflection" className="navLink">Reflection</NavLink>
+        <NavLink to="/about" className="navLink">About</NavLink>
+        <NavLink to="/contact" className="navLink">Contact</NavLink>
+        </nav>
+      </div>
 
       <Routes>
         <Route path="/" element={<HomePage />} />
