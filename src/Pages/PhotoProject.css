@@ -1,32 +1,231 @@
-.finalPhotos {
-  display: flex;
-  gap: 30px;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  flex-grow: 0;
-  padding: 30px;
+.inner-page {
+  margin-left: 244px;
 }
 
-.finalPhoto img {
-  border-radius: 5%;
-  border: 5px solid #555;
-  width: 250px;
-  height: 200px;
+.inner-intro h1 {
+  margin: 18px 0 22px;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(64px, 9vw, 144px);
+  line-height: 0.79;
+  letter-spacing: -0.075em;
+  font-weight: 600;
 }
 
-.finalPhoto p {
-  background-color: black;
-  width: 250px;
+.inner-intro {
+  min-height: 600px;
+  padding: 95px 0 85px;
+  position: relative;
 }
 
-.projectName {
-  background-color: #07beb8;
+.inner-intro h1 {
+  font-size: clamp(72px, 10vw, 150px);
+  line-height: 0.82;
+}
+
+.inner-intro h1 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.intro-copy {
+  position: absolute;
+  right: 4vw;
+  bottom: 100px;
+  width: min(310px, 30%);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.photo-projects {
+  border-top: 1px solid var(--ink);
+}
+
+.photo-story {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: 45px minmax(320px, 1.45fr) minmax(240px, 0.75fr);
+  gap: 3.5vw;
+  align-items: start;
+}
+
+.story-number {
+  font-family: "Syne", sans-serif;
+  font-size: 16px;
+}
+
+.story-image {
+  position: relative;
+  aspect-ratio: 1.18;
+  overflow: hidden;
+}
+
+.story-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.projectName h1 {
-  margin: 0;
-  padding: 20px;
-  color: #000;
+.story-slider {
+  min-width: 0;
 }
 
+.comparison {
+  cursor: ew-resize;
+  touch-action: pan-y;
+  user-select: none;
+  background: var(--ink);
+}
+
+.comparison:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
+.comparison-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.comparison-before {
+  filter: saturate(0.4) contrast(0.85) brightness(1.08);
+}
+
+.comparison-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--paper);
+  transform: translateX(-50%);
+  box-shadow: 0 0 6px #17171355;
+  pointer-events: none;
+}
+
+.comparison-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 2px 12px #17171333;
+  font-size: 22px;
+}
+
+.comparison-handle > span {
+  width: 1px;
+  height: 15px;
+  background: var(--acid);
+}
+
+.comparison:focus-visible .comparison-handle {
+  background: var(--acid);
+}
+
+.comparison-label {
+  position: absolute;
+  top: 14px;
+  padding: 7px 9px;
+  background: var(--paper);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.before-label {
+  left: 14px;
+}
+
+.after-label {
+  right: 14px;
+}
+
+.comparison-hint {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6c6b64;
+}
+
+.story-copy {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.story-copy h2 {
+  margin: 18px 0 32px;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+
+.story-copy h2 span {
+  display: block;
+}
+
+.story-copy > p:not(.eyebrow) {
+  max-width: 330px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .photo-story {
+    grid-template-columns: 28px 1fr;
+  }
+
+  .story-copy {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner-intro h1 {
+    font-size: clamp(55px, 19vw, 84px);
+  }
+
+  .inner-intro {
+    min-height: auto;
+    padding: 65px 0 90px;
+  }
+
+  .intro-copy {
+    position: static;
+    width: 85%;
+    margin: 45px 0 0 auto;
+  }
+
+  .photo-story {
+    padding: 52px 0;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .story-number,
+  .story-copy {
+    grid-column: 1;
+  }
+
+  .story-copy {
+    min-height: auto;
+  }
+}
